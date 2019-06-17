@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 
+import HeaderStyle from "./HeaderStyle"
+
 import {
   View,
-  Text
+  Text,
+  StyleSheet
 } from 'react-native'
 
 const restaurants = [
@@ -16,25 +19,18 @@ export default class App extends Component {
     return (
       <View style={{
         flex: 1
-      }}>
-        <Text style={{
-          padding: 40,
-          fontSize: 30,
-          textAlign: 'center',
-          color: '#0066cc',
-          fontWeight: '300'
-        }}>Restourant Review</Text>
+      }}  >
+        <Text style={HeaderStyle.header}>Restourant Review</Text>
 
 
         {
           restaurants.map((place, index) => {
             return (
-              <View key={place.name} style={{ flexDirection: 'row'}}>
-                <View style={{
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
+              <View key={place.name} style={[
+                  styles.row,
+                  {backgroundColor: index % 2 === 0 ? 'white' : '#F3F3F7'}
+                ]}  >
+                <View style={styles.edges}>
                   <Text>{index + 1}</Text>
                 </View>
 
@@ -43,14 +39,10 @@ export default class App extends Component {
                   flex: 8
                 }}>
                   <Text>{place.name}</Text>
-                  <Text style={{ color: 'gray' }}>{place.address}</Text>
+                  <Text style={styles.addressText}>{place.address}</Text>
                 </View>
 
-                <View style={{
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
+                <View style={styles.nameAddress}>
                   <Text>Info</Text>
                 </View>
               </View>
@@ -62,3 +54,24 @@ export default class App extends Component {
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row'
+  },
+  edges: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 5
+  },
+  nameAddress: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  addressText: {
+    color: 'gray'
+  }
+})
