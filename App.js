@@ -14,7 +14,9 @@ const restaurants = [
 export default class App extends Component {
   render() {
     return (
-      <View>
+      <View style={{
+        flex: 1
+      }}>
         <Text style={{
           padding: 40,
           fontSize: 30,
@@ -27,11 +29,30 @@ export default class App extends Component {
         {
           restaurants.map((place, index) => {
             return (
-              <View key={place.name}>
-                <Text>{index + 1}</Text>
-                <Text>{place.name}</Text>
-                <Text style={{ color: 'gray' }}>{place.address}</Text>
-                <Text>Info</Text>
+              <View key={place.name} style={{ flexDirection: 'row'}}>
+                <View style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Text>{index + 1}</Text>
+                </View>
+
+                <View style={{
+                  flexDirection: 'column',
+                  flex: 8
+                }}>
+                  <Text>{place.name}</Text>
+                  <Text style={{ color: 'gray' }}>{place.address}</Text>
+                </View>
+
+                <View style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Text>Info</Text>
+                </View>
               </View>
             )
           })
