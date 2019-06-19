@@ -2,7 +2,7 @@
 
 	import { Text } from 'react-native'
 
-	import HeaderStyle from './HeaderStyle'
+	import HeaderStyle from 'styles/HeaderStyle'
 
 	export default class Header extends Component {
 		 render() {
