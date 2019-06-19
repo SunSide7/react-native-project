@@ -9,6 +9,8 @@ import {
   TextInput
 } from 'react-native'
 
+import Header from './Header'
+
 const restaurants = [
   {name: 'React Cafe', address: '123 Anywhere St'},
   {name: 'Fancy Restaurant', address: '779 Main St'},
@@ -21,15 +23,13 @@ export default class App extends Component {
     search: null
   }
 
-  render() {
-    
-    debugger
+  render() { 
 
     return (
       <View style={{
         flex: 1
       }}  >
-        <Text style={HeaderStyle.header}>Restourant Review</Text>
+        <Header />
 
         <TextInput 
           style={styles.input}
